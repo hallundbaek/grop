@@ -19,6 +19,8 @@ mdtopdf $1
 document=$1
 filename="${document%%.*}"
 
+evince $filename.pdf &
+
 while inotifywait -e close_write $1; do 
   mdtopdf $1
 done
